@@ -9,11 +9,31 @@ const PropertyCard = ({ property, showDetails = true }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden border border-gray-100">
       {/* Image Section */}
-      <div className="relative h-48 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 flex items-center justify-center">
-        <span className="text-6xl">{property.emoji}</span>
+      <div className="relative h-48 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 flex items-center justify-center overflow-hidden">
+        {property.image ? (
+          <>
+            <img 
+              src={property.image} 
+              alt={property.title}
+              className="property-image w-full h-full object-cover"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+              onLoad={(e) => {
+                e.target.style.opacity = '1';
+              }}
+              style={{ opacity: 0 }}
+            />
+            <div className="property-card-overlay absolute inset-0"></div>
+          </>
+        ) : null}
+        <div className={`w-full h-full flex items-center justify-center ${property.image ? 'hidden' : ''}`}>
+          <span className="text-6xl">🏠</span>
+        </div>
         
         {/* Action Buttons */}
-        <div className="absolute top-3 right-3 flex space-x-2">
+        <div className="absolute top-3 right-3 flex space-x-2 z-10">
           <button className="p-2 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-all duration-300 hover:scale-110">
             <Heart className="w-4 h-4 text-white" />
           </button>
@@ -24,12 +44,12 @@ const PropertyCard = ({ property, showDetails = true }) => {
         
         {/* Badges */}
         {property.isNew && (
-          <div className="absolute top-3 left-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg">
+          <div className="absolute top-3 left-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg z-10">
             NEW
           </div>
         )}
         {property.priceReduction && (
-          <div className="absolute bottom-3 left-3 bg-gradient-to-r from-red-500 to-pink-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg">
+          <div className="absolute bottom-3 left-3 bg-gradient-to-r from-red-500 to-pink-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg z-10">
             🔥 {property.priceReduction}
           </div>
         )}
@@ -65,11 +85,11 @@ const PropertyCard = ({ property, showDetails = true }) => {
         {/* Property Stats */}
         <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4">
           <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-2 sm:p-3 text-center border border-blue-200">
-            <div className="text-base sm:text-lg font-bold text-blue-700">{property.bedrooms}</div>
+            <div className="text-base sm:text-lg font-bold text-blue-700">{property.beds}</div>
             <div className="text-xs text-blue-600">Beds</div>
           </div>
           <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-2 sm:p-3 text-center border border-purple-200">
-            <div className="text-base sm:text-lg font-bold text-purple-700">{property.bathrooms}</div>
+            <div className="text-base sm:text-lg font-bold text-purple-700">{property.baths}</div>
             <div className="text-xs text-purple-600">Baths</div>
           </div>
           <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-xl p-2 sm:p-3 text-center border border-green-200">

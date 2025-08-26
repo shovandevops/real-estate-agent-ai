@@ -8,7 +8,7 @@ const PropertiesList = ({ location = 'downtown' }) => {
   const [bedrooms, setBedrooms] = useState('all')
   const [sortBy, setSortBy] = useState('recommended')
 
-  // Downtown properties data
+  // Downtown properties data with unique images
   const downtownProperties = [
     {
       id: 1,
@@ -21,7 +21,7 @@ const PropertiesList = ({ location = 'downtown' }) => {
       sqft: 2200,
       rating: 4.9,
       appreciation: "+18%",
-      image: "🏢",
+      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop&crop=center",
       features: ["Penthouse", "City Views", "Concierge", "Gym", "Parking"],
       isNew: true,
       daysOnMarket: 5,
@@ -37,7 +37,7 @@ const PropertiesList = ({ location = 'downtown' }) => {
       sqft: 1200,
       rating: 4.7,
       appreciation: "+15%",
-      image: "🏢",
+      image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop&crop=center",
       features: ["High Ceilings", "Exposed Brick", "Balcony", "Gym"],
       daysOnMarket: 12,
       monthlyPayment: "$2,300"
@@ -52,7 +52,7 @@ const PropertiesList = ({ location = 'downtown' }) => {
       sqft: 800,
       rating: 4.5,
       appreciation: "+22%",
-      image: "🏘️",
+      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop&crop=center",
       features: ["Rental Income", "Student Housing", "Low Maintenance"],
       daysOnMarket: 8,
       monthlyPayment: "$1,600"
@@ -67,7 +67,7 @@ const PropertiesList = ({ location = 'downtown' }) => {
       sqft: 1800,
       rating: 4.8,
       appreciation: "+16%",
-      image: "🏢",
+      image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop&crop=center",
       features: ["Family Friendly", "School District", "Playground", "Security"],
       daysOnMarket: 15,
       monthlyPayment: "$3,400"
@@ -82,7 +82,7 @@ const PropertiesList = ({ location = 'downtown' }) => {
       sqft: 650,
       rating: 4.6,
       appreciation: "+20%",
-      image: "🏢",
+      image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop&crop=center",
       features: ["Water Views", "Modern Kitchen", "Walk-in Closet"],
       daysOnMarket: 3,
       monthlyPayment: "$1,400"
@@ -97,7 +97,7 @@ const PropertiesList = ({ location = 'downtown' }) => {
       sqft: 2400,
       rating: 4.9,
       appreciation: "+19%",
-      image: "🏠",
+      image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop&crop=center",
       features: ["Historic Charm", "Private Garden", "Garage", "Character"],
       daysOnMarket: 20,
       monthlyPayment: "$3,800"

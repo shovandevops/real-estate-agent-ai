@@ -156,4 +156,21 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
+
+  /* Property card image enhancements */
+  .property-image {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .property-image:hover {
+    transform: scale(1.05);
+  }
+
+  .property-card-overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.1) 100%
+    );
+  }
 }
